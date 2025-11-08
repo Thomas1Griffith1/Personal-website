@@ -11,9 +11,8 @@ function spawnSymbol() {
   symbol.style.animationDuration = (Math.random() * 4 + 3) + 's';
   container.appendChild(symbol);
 
-  // Remove after animation completes
   setTimeout(() => symbol.remove(), 6000);
 }
 
-// Create a continuous stream of random characters
+// Continuous background effect
 setInterval(spawnSymbol, 150);
