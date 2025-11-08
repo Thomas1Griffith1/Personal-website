@@ -1,11 +1,25 @@
-/* General Page Setup */
+/* General */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #0d0d0d;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
   overflow: hidden;
   height: 100vh;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Theme variables */
+:root {
+  --bg: #0d0d0d;
+  --text: #ffffff;
+  --symbol: rgba(255, 255, 255, 0.15);
+}
+
+.light {
+  --bg: #f9f9f9;
+  --text: #222;
+  --symbol: rgba(0, 0, 0, 0.15);
 }
 
 /* Navbar */
@@ -14,6 +28,10 @@ nav {
   text-align: center;
   padding: 1rem 0;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 nav ul {
@@ -21,18 +39,35 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
   gap: 2rem;
 }
 
 nav a {
-  color: #ccc;
+  color: var(--text);
   text-decoration: none;
-  transition: color 0.3s;
+  opacity: 0.8;
+  transition: opacity 0.3s;
 }
 
 nav a:hover {
-  color: white;
+  opacity: 1;
+}
+
+#theme-toggle {
+  background: transparent;
+  border: 1px solid var(--text);
+  color: var(--text);
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+#theme-toggle:hover {
+  background: var(--text);
+  color: var(--bg);
 }
 
 /* Title */
@@ -44,7 +79,7 @@ main h1 {
   z-index: 2;
 }
 
-/* Symbol Background Layer */
+/* Background Symbols */
 .symbol-bg {
   position: absolute;
   top: 0;
@@ -58,7 +93,7 @@ main h1 {
 
 .symbol {
   position: absolute;
-  color: rgba(255, 255, 255, 0.15);
+  color: var(--symbol);
   font-size: 1.2rem;
   animation: fadeMove 6s linear forwards;
 }
